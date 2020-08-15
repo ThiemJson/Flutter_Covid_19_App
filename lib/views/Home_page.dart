@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'package:ncov_app/views/Global_page.dart';
+import 'package:http/http.dart';import 'package:ncov_app/views/Global_page.dart';
+import 'package:ncov_app/views/Home_Page.dart';
 import '../controllers/getJSONFileFromApi.dart';
 import '../models/DataResponse.dart';
 import '../models/GlobalCovid.dart';
 import '../models/CountryCovid.dart';
 import '../models/Time.dart';
-class Home_Page extends StatelessWidget {
+import '../controllers/config.dart';
+import '../views/Countries_page.dart';
+class Waiting_Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,8 @@ class _MyAppState extends State<MyApp> {
          }
          Navigator.of(context).push(
              MaterialPageRoute(
-                 builder: (context) => GlobalPage(globalCovid: _globalCovid,)
+                 builder: (context) => HomePages(listCountry: _listCountry, globalCovid: _globalCovid,),
+                 //builder: (context) => GlobalPage(globalCovid: _globalCovid,),
              )
          );
        });
@@ -60,6 +63,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    print("Height: ${MediaQuery.of(context).size.height}");
+    print("Width: ${MediaQuery.of(context).size.width}");
+
     return Scaffold(
       backgroundColor: Color(0xFFC41A3B) ,
       body: Center(

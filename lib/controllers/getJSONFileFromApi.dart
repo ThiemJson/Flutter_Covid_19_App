@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import '../models/DataResponse.dart';
 
 Future<DataResponse> getJSONFileFormAPI() async {
+
   final response = await http.get('https://api.covid19api.com/summary');
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
