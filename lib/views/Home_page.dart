@@ -37,31 +37,45 @@ class _MyAppState extends State<MyApp> {
   void getData() {
     _futureDataResponse = getJSONFileFormAPI();
     _futureDataResponse.then( (_dataResponse){
-      _globalCovid =  GlobalCovid.fromJson(_dataResponse.dataResponseGlobal);
-      for(int i = 0 ; i < _dataResponse.dataResponseCountry.length ; i ++ ){
-        _listCountry.add(Country.fromJson(_dataResponse.dataResponseCountry[i]));
-      }
+
   });
   }
 
   @override
   void initState() {
      super.initState();
-  }
+     _futureDataResponse = getJSONFileFormAPI();
+     _futureDataResponse.then( (_dataResponse) {
+         _globalCovid =  GlobalCovid.fromJson(_dataResponse.dataResponseGlobal);
+         for(int i = 0 ; i < _dataResponse.dataResponseCountry.length ; i ++ ){
+           _listCountry.add(Country.fromJson(_dataResponse.dataResponseCountry[i]));
+         }
+         Navigator.of(context).push(
+             MaterialPageRoute(
+                 builder: (context) => GlobalPage(globalCovid: _globalCovid,)
+             )
+         );
+       });
+     }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFC41A3B) ,
       body: Center(
-        child: RaisedButton(
-          child: Text("Press me! "),
-          onPressed: () async{
-             _futureDataResponse = getJSONFileFormAPI();
-
-          },
-        ),
-      ),
-    );
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text('COVID-19',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 60),),
+              SizedBox(height: 20,),
+              Text('--Việt Nam chung tay quyết thắng đại dịch--',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15, fontStyle: FontStyle.italic),),
+            ],
+          ),
+        ),),
+      );
   }
 }
 

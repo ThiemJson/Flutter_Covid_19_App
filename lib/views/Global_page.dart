@@ -73,7 +73,7 @@ class _MyAppState extends State<MyApp> {
               SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.only( left: 30),
-                child: Text('Toàn thế giới ', style: TextStyle( color: Colors.white, fontSize: 70, fontWeight: FontWeight.bold),),
+                child: Text('Toàn thế giới ', style: TextStyle( color: Colors.white, fontSize: 50, fontWeight: FontWeight.bold),),
               ),
               SizedBox(height: 10,),
               Padding(
@@ -91,8 +91,8 @@ class _MyAppState extends State<MyApp> {
                         fit: BoxFit.cover,
                       ),
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(100),
-                        topLeft: Radius.circular(50),
+                        topRight: Radius.circular(80),
+                        topLeft: Radius.circular(30),
                       )
                     ),
                     child: Padding(
@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
                                 scrollDirection: Axis.vertical,
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Card(
                                     shadowColor: Color(0xFFC41A3B),
                                     elevation: 12,
@@ -123,11 +123,11 @@ class _MyAppState extends State<MyApp> {
                                           Text(
                                             'Số ca nhiễm mới',
                                             style: TextStyle(
-                                                color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 21),
+                                                color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 15),
                                           ),
-                                          Text(NewConfirmed, style: TextStyle(fontSize: 45, color:Colors.red , fontWeight: FontWeight.bold),),
+                                          Text(NewConfirmed, style: TextStyle(fontSize: 25, color:Colors.red , fontWeight: FontWeight.bold),),
                                           SizedBox(height: 15,),
-                                          Text('Tổng số ca nhiễm', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 21),),
+                                          Text('Tổng số ca nhiễm', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 15),),
                                           Text(TotalConfirmed, style: TextStyle(fontSize: 22, color:Colors.red , fontWeight: FontWeight.bold),),
                                         ],
                                       ),
@@ -135,7 +135,7 @@ class _MyAppState extends State<MyApp> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Card(
                                     shadowColor: Color(0xFFC41A3B),
                                     elevation: 12,
@@ -152,42 +152,44 @@ class _MyAppState extends State<MyApp> {
                                           Text(
                                             'Số ca tử vong mới',
                                             style: TextStyle(
-                                                color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 21),
+                                                color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 15),
                                           ),
-                                          Text( NewDeaths, style: TextStyle(fontSize: 45, color:Color(0xFFC41A3B) , fontWeight: FontWeight.bold),),
+                                          Text( NewDeaths, style: TextStyle(fontSize: 25, color:Color(0xFFC41A3B) , fontWeight: FontWeight.bold),),
                                           SizedBox(height: 15,),
-                                          Text('Tổng số ca tử vong', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 21),),
+                                          Text('Tổng số ca tử vong', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 15),),
                                           Text(TotalDeaths, style: TextStyle(fontSize: 22, color:Color(0xFFC41A3B) , fontWeight: FontWeight.bold),),
                                         ],
                                       ),
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(20.0),
-                                  child: Card(
-                                    shadowColor: Color(0xFFC41A3B),
-                                    elevation: 12,
-                                    color: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(25),
-                                        side: BorderSide(color: Color(0xFFC41A3B), width: 0.2, style: BorderStyle.none)
-                                    ),
-                                    child: Center(
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text(
-                                            'Số ca hồi phục mới',
-                                            style: TextStyle(
-                                                color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 21),
-                                          ),
-                                          Text(NewRecoverd, style: TextStyle(fontSize: 45, color:Colors.green , fontWeight: FontWeight.bold),),
-                                          SizedBox(height: 15,),
-                                          Text('Tổng số ca hồi phục', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 21),),
-                                          Text(TotalRecoverd, style: TextStyle(fontSize: 22, color:Colors.green , fontWeight: FontWeight.bold),),
-                                        ],
+                                LimitedBox(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Card(
+                                      shadowColor: Color(0xFFC41A3B),
+                                      elevation: 12,
+                                      color: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(25),
+                                          side: BorderSide(color: Color(0xFFC41A3B), width: 0.2, style: BorderStyle.none)
+                                      ),
+                                      child: Center(
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: <Widget>[
+                                            Text(
+                                              'Số ca hồi phục mới',
+                                              style: TextStyle(
+                                                  color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 15),
+                                            ),
+                                            Text(NewRecoverd, style: TextStyle(fontSize: 25, color:Colors.green , fontWeight: FontWeight.bold),),
+                                            SizedBox(height: 15,),
+                                            Text('Tổng số ca hồi phục', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: 15),),
+                                            Text(TotalRecoverd, style: TextStyle(fontSize: 22, color:Colors.green , fontWeight: FontWeight.bold),),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
