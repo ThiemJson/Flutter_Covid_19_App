@@ -48,14 +48,7 @@ class _MyAppState extends State<MyApp> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.center,
-              colors: [
-                Color(0xFFC41A3B),
-                Color(0xFFC41A3B).withOpacity(0.8)
-              ],
-              tileMode: TileMode.clamp,
-            ),
+            color: Color(0xFFC41A3B),
           ),
           child: LimitedBox(
             maxWidth: MediaQuery.of(context).size.width,
@@ -63,20 +56,14 @@ class _MyAppState extends State<MyApp> {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 25, left: 30),
-                    child: Text('Covid-19', style: TextStyle( color: Colors.white, fontSize: Screen.SubTitle, fontWeight: FontWeight.bold),),
+                  SizedBox(height: 10,),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only( left: 30),
+                      child: Text('Quốc gia ', style: TextStyle( color: Colors.white, fontSize: Screen.MainTitle - 25, fontWeight: FontWeight.bold),),
+                    ),
                   ),
                   SizedBox(height: 10,),
-                  Padding(
-                    padding: const EdgeInsets.only( left: 30),
-                    child: Text('Quốc gia ', style: TextStyle( color: Colors.white, fontSize: Screen.MainTitle, fontWeight: FontWeight.bold),),
-                  ),
-                  SizedBox(height: 10,),
-                  Padding(
-                    padding: const EdgeInsets.only( left: 30),
-                    child: Text('Cập nhật lần cuối: ', style: TextStyle( color: Colors.white, fontSize: Screen.SubTitle2, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
-                  ),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(top: 40),

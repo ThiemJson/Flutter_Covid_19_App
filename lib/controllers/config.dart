@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class Screen {
   static double MainTitle ;
-  static double   SubTitle;
+  static double SubTitle;
   static double Number;
   static double CardTitle;
   static double paddingMainScreenTopRight;
@@ -21,14 +21,14 @@ class Screen {
     SubTitle = (WIDTH*HEIGHT)/11247.2816;
     SubTitle2 = (WIDTH*HEIGHT)/15621.2244;
     MainTitle = (WIDTH*HEIGHT)/5623.64078;
-    Number = (WIDTH*HEIGHT)/11247.2816 ;
-    CardTitle = (WIDTH*HEIGHT)/18745.4693;
+    Number = (WIDTH*HEIGHT)/11247.2816 - 5;
+    CardTitle = (WIDTH*HEIGHT)/18745.4693- 5;
     paddingMainScreenTopLeft = (WIDTH*HEIGHT)/9372.7343;
     paddingMainScreenTopRight = (WIDTH*HEIGHT)/3514.77549;
     paddingCard = (WIDTH*HEIGHT)/28118.2039;
-    CountryInf = (WIDTH*HEIGHT)/14059.1;
-    CountryIcon = (WIDTH*HEIGHT)/9372.7333;
-    CountryTitleName = (WIDTH*HEIGHT)/9372.7333;
+    CountryInf = (WIDTH*HEIGHT)/14059.1 - 10;
+    CountryIcon = (WIDTH*HEIGHT)/9372.7333 - 9;
+    CountryTitleName = (WIDTH*HEIGHT)/9372.7333 - 10;
 
   }
 }

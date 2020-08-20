@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               Text('COVID-19',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 60),),
               SizedBox(height: 20,),
-              Text('--Việt Nam chung tay quyết thắng đại dịch--',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15, fontStyle: FontStyle.italic),),
+              Text('-- Việt Nam chung tay quyết thắng đại dịch --',style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20, fontStyle: FontStyle.italic),),
             ],
           ),
         ),),

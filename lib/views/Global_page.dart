@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:ncov_app/views/Home_page.dart';
+import 'package:ncov_app/views/Waiting_page.dart';
 import '../models/GlobalCovid.dart';
 import '../models/CountryCovid.dart';
 import '../controllers/config.dart';
@@ -59,95 +59,111 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     Screen SCREEN = new Screen(context);
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.center,
-            colors: [
-              Color(0xFFC41A3B),
-              Color(0xFFC41A3B).withOpacity(0.8)
-            ],
-            tileMode: TileMode.clamp
+      body: SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(
+            color: Color(0xFFC41A3B),
           ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 25, left: 30),
-              child: Text('Covid-19', style: TextStyle( color: Colors.white, fontSize: Screen.SubTitle, fontWeight: FontWeight.bold),),
-            ),
-            SizedBox(height: 10,),
-            Padding(
-              padding: const EdgeInsets.only( left: 30),
-              child: Text('Toàn thế giới ', style: TextStyle( color: Colors.white, fontSize: Screen.MainTitle, fontWeight: FontWeight.bold),),
-            ),
-            SizedBox(height: 10,),
-            Padding(
-              padding: const EdgeInsets.only( left: 30),
-              child: Text('Cập nhật lần cuối: ', style: TextStyle( color: Colors.white, fontSize: Screen.SubTitle2, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic),),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage('https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/2020-04-06/COVID%20Getty%20Image.jpg?w=660',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(height: 10,),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only( left: 30),
+                  child: Text('Toàn thế giới ', style: TextStyle( color: Colors.white, fontSize: Screen.MainTitle - 25, fontWeight: FontWeight.bold),),
+                ),
+              ),
+              SizedBox(height: 10,),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 50),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage('https://d18lkz4dllo6v2.cloudfront.net/cumulus_uploads/entry/2020-04-06/COVID%20Getty%20Image.jpg?w=660',
+                        ),
+                        fit: BoxFit.cover,
+                        alignment: Alignment.bottomLeft,
                       ),
-                      fit: BoxFit.cover,
-                      alignment: Alignment.bottomLeft,
-
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(/*Screen.paddingMainScreenTopRight*/ 40),
+                        topLeft: Radius.circular(/*Screen.paddingMainScreenTopLeft*/ 40),
+                      )
                     ),
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(Screen.paddingMainScreenTopRight),
-                      topLeft: Radius.circular(Screen.paddingMainScreenTopLeft),
-                    )
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: Container(
-                        child: Container(
-                          width: double.infinity,
-                          height: MediaQuery.of(context).size.height*0.5,
-                          child: GridView.count(
-                              crossAxisCount: 2,
-                              scrollDirection: Axis.vertical,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Card(
-                                  shadowColor: Color(0xFFC41A3B),
-                                  elevation: 12,
-                                  color: Colors.white70.withOpacity(0.6),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25),
-                                    side: BorderSide(color: Color(0xFFC41A3B), width: 0.2, style: BorderStyle.none)
-                                  ),
-                                  child: Center(
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          'Số ca nhiễm mới',
-                                          style: TextStyle(
-                                              color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),
-                                        ),
-                                        Text(NewConfirmed, style: TextStyle(fontSize: Screen.Number, color:Colors.red , fontWeight: FontWeight.bold),),
-                                        SizedBox(height: 15,),
-                                        Text('Tổng số ca nhiễm', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),),
-                                        Text(TotalConfirmed, style: TextStyle(fontSize: Screen.Number, color:Colors.red , fontWeight: FontWeight.bold),),
-                                      ],
-                                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: MediaQuery.of(context).size.height*0.5,
+                        child: GridView.count(
+                            crossAxisCount: 2,
+                            scrollDirection: Axis.vertical,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Card(
+                                shadowColor: Color(0xFFC41A3B),
+                                elevation: 12,
+                                color: Colors.white70.withOpacity(0.6),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25),
+                                  side: BorderSide(color: Color(0xFFC41A3B), width: 0.2, style: BorderStyle.none)
+                                ),
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        'Số ca nhiễm mới',
+                                        style: TextStyle(
+                                            color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),
+                                      ),
+                                      Text(NewConfirmed, style: TextStyle(fontSize: Screen.Number, color:Colors.red , fontWeight: FontWeight.bold),),
+                                      SizedBox(height: 15,),
+                                      Text('Tổng số ca nhiễm', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),),
+                                      Text(TotalConfirmed, style: TextStyle(fontSize: Screen.Number, color:Colors.red , fontWeight: FontWeight.bold),),
+                                    ],
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(10),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Card(
+                                shadowColor: Color(0xFFC41A3B),
+                                elevation: 12,
+                                color:  Colors.white70.withOpacity(0.6),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(25),
+                                    side: BorderSide(color: Color(0xFFC41A3B), width: 0.2, style: BorderStyle.none)
+                                ),
+                                child: Center(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        'Số ca tử vong mới',
+                                        style: TextStyle(
+                                            color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),
+                                      ),
+                                      Text( NewDeaths, style: TextStyle(fontSize: Screen.Number, color:Color(0xFFC41A3B) , fontWeight: FontWeight.bold),),
+                                      SizedBox(height: 15,),
+                                      Text('Tổng số ca tử vong', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),),
+                                      Text(TotalDeaths, style: TextStyle(fontSize: Screen.Number, color:Color(0xFFC41A3B) , fontWeight: FontWeight.bold),),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            LimitedBox(
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
                                 child: Card(
                                   shadowColor: Color(0xFFC41A3B),
                                   elevation: 12,
@@ -162,60 +178,30 @@ class _MyAppState extends State<MyApp> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text(
-                                          'Số ca tử vong mới',
+                                          'Số ca hồi phục mới',
                                           style: TextStyle(
                                               color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),
                                         ),
-                                        Text( NewDeaths, style: TextStyle(fontSize: Screen.Number, color:Color(0xFFC41A3B) , fontWeight: FontWeight.bold),),
+                                        Text(NewRecoverd, style: TextStyle(fontSize: Screen.Number, color:Colors.green , fontWeight: FontWeight.bold),),
                                         SizedBox(height: 15,),
-                                        Text('Tổng số ca tử vong', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),),
-                                        Text(TotalDeaths, style: TextStyle(fontSize: Screen.Number, color:Color(0xFFC41A3B) , fontWeight: FontWeight.bold),),
+                                        Text('Tổng số ca hồi phục', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),),
+                                        Text(TotalRecoverd, style: TextStyle(fontSize: Screen.Number, color:Colors.green , fontWeight: FontWeight.bold),),
                                       ],
                                     ),
                                   ),
                                 ),
                               ),
-                              LimitedBox(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Card(
-                                    shadowColor: Color(0xFFC41A3B),
-                                    elevation: 12,
-                                    color:  Colors.white70.withOpacity(0.6),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(25),
-                                        side: BorderSide(color: Color(0xFFC41A3B), width: 0.2, style: BorderStyle.none)
-                                    ),
-                                    child: Center(
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text(
-                                            'Số ca hồi phục mới',
-                                            style: TextStyle(
-                                                color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),
-                                          ),
-                                          Text(NewRecoverd, style: TextStyle(fontSize: Screen.Number, color:Colors.green , fontWeight: FontWeight.bold),),
-                                          SizedBox(height: 15,),
-                                          Text('Tổng số ca hồi phục', style: TextStyle(color: Colors.black87 , fontWeight: FontWeight.bold, fontSize: Screen.CardTitle),),
-                                          Text(TotalRecoverd, style: TextStyle(fontSize: Screen.Number, color:Colors.green , fontWeight: FontWeight.bold),),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                            ),
 
-                            ],
-                          ),
+                          ],
                         ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -62,6 +62,10 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('COVID-19', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold ),),
+        centerTitle: true,
+      ),
       body: TabBarView(
         controller: _tabController,
         children: <Widget>[
@@ -73,23 +77,25 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
         //padding: EdgeInsets.all(16.0),
         child: ClipRRect(
           child: Container(
-            color: Colors.blueGrey.withOpacity(0.5),
+            color: Color(0xFFC41A3B),
             child: TabBar(
               controller: _tabController,
-              unselectedLabelColor: Colors.white,
-              labelColor: Color(0xFFC41A3B),
+              unselectedLabelColor: Colors.black54,
+              labelColor: Colors.white,
               labelStyle: TextStyle(fontSize: 12),
               indicator: UnderlineTabIndicator(
                 borderSide: BorderSide.none,
                 insets:  EdgeInsets.fromLTRB(50, 0, 50, 40),
               ),
-              indicatorColor: Colors.black54,
+              //indicatorColor: Color(0xFFC41A3B),
               tabs: <Widget>[
                 Tab(
-                  icon: Icon(Icons.public, size: 40,),
+                  icon: Icon(Icons.public, size: 35,),
+                  text: 'Global',
                 ),
                 Tab(
-                  icon: Icon(Icons.account_balance, size: 40,),
+                  icon: Icon(Icons.account_balance, size: 35,),
+                  text: 'Countries',
                 ),
               ],
             ),
